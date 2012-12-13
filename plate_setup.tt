@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Plate>
+    <Name>Untitled</Name>
+    <Rows>6</Rows>
+    <Columns>8</Columns>
+    <PlateKind>
+        <Name>48-Well Plate (6x8)</Name>
+        <Type>TYPE_6X8</Type>
+        <RowCount>6</RowCount>
+        <ColumnCount>8</ColumnCount>
+    </PlateKind>
+    <FeatureMap>
+        <Feature>
+            <Id>marker-task</Id>
+            <Name>marker-task</Name>
+        </Feature>
+    </FeatureMap>
+    <FeatureMap>
+        <Feature>
+            <Id>sample</Id>
+            <Name>sample</Name>
+        </Feature>
+[% FOREACH item = array -%]
+        <FeatureValue>
+            <Index>[% item.index %]</Index>
+            <FeatureItem>
+                <Sample>
+                    <Name>[% item.name %]</Name>
+                    <Color>[% item.color %]</Color>
+                </Sample>
+            </FeatureItem>
+        </FeatureValue>
+[% END -%]
+    </FeatureMap>
+    <FeatureMap>
+        <Feature>
+            <Id>comment</Id>
+            <Name>comment</Name>
+        </Feature>
+    </FeatureMap>
+    <FeatureMap>
+        <Feature>
+            <Id>detector-task</Id>
+            <Name>detector-task</Name>
+        </Feature>
+[% FOREACH feature = features -%]
+        <FeatureValue>
+            <Index>[% feature.index %]</Index>
+            <FeatureItem>
+                <DetectorTaskList>
+                    <DetectorTask>
+                        <Task>[% feature.task %]</Task>
+                        <Concentration>[% feature.concentration %]</Concentration>
+                        <Detector>
+                            <Name>Target 1</Name>
+                            <Reporter>[% feature.reporter %]</Reporter>
+                            <Quencher>None</Quencher>
+                            <Color>[% feature.color %]</Color>
+                        </Detector>
+                    </DetectorTask>
+                </DetectorTaskList>
+            </FeatureItem>
+        </FeatureValue>
+[% END -%]
+    </FeatureMap>
+    <Wells>
+[% FOREACH well = wells -%]
+        <Well>
+            <Index>[% well %]</Index>
+            <IsOmit>false</IsOmit>
+        </Well>
+[% END -%]
+    </Wells>
+    <MultiZoneEnabled>false</MultiZoneEnabled>
+    <LogicalZone>
+        <PhysicalZone>
+            <Columns>0</Columns>
+            <Columns>1</Columns>
+            <Columns>2</Columns>
+            <Columns>3</Columns>
+            <Columns>4</Columns>
+            <Columns>5</Columns>
+            <Columns>6</Columns>
+            <Columns>7</Columns>
+        </PhysicalZone>
+    </LogicalZone>
+    <PassiveReferenceDye>ROX</PassiveReferenceDye>
+</Plate>

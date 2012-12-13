@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Experiment>
+    <Name>Untitled</Name>
+    <RunState>INIT</RunState>
+    <FinalAnalysisCompleted>false</FinalAnalysisCompleted>
+    <ModifiedTime>1352407050275</ModifiedTime>
+    <PreReadState>INIT</PreReadState>
+    <Type>
+        <Id>Std</Id>
+        <Name>Quantitation - Standard Curve</Name>
+        <Description>Use standards to determine the absolute quantity of target nucleic acid sequence in samples.</Description>
+        <ResultPersisterName>scAnalysisResultPersister</ResultPersisterName>
+        <ContributedResultPersisterNames>mcAnalysisResultPersister</ContributedResultPersisterNames>
+        <Chemistry>
+            <Name>TaqMan® Reagents</Name>
+            <Description>The PCR reactions contain primers designed to amplify the target sequence and a TaqMan® probe designed to detect amplification of the target sequence.</Description>
+            <ID>TAQMAN</ID>
+        </Chemistry>
+        <Chemistry>
+            <Name>SYBR® Green Reagents</Name>
+            <Description>The PCR reactions contain primers designed to amplify the target sequence and SYBR® Green I dye to detect double-stranded DNA.</Description>
+            <ID>SYBR_GREEN</ID>
+        </Chemistry>
+        <Chemistry>
+            <Name>Other</Name>
+            <Description>The PCR reactions contain primers to designed to amplify the target sequence and other reagents to detect amplification. The Reaction Setup screen is not available for &quot;Other&quot; reagents.</Description>
+            <ID>OTHER</ID>
+        </Chemistry>
+    </Type>
+
+[% FOREACH item = array -%]
+    <Samples>
+        <Name>[% item.name %]</Name>
+        <Color>[% item.color %]</Color>
+        <Concentration>[% item.concentration %]</Concentration>
+    </Samples>
+[% END -%]
+
+    <Detectors>
+        <Name>Target 1</Name>
+        <Reporter>SYBR</Reporter>
+        <Quencher>None</Quencher>
+        <Color>-3083422</Color>
+        <ProbePrimerMixFactor>20.0</ProbePrimerMixFactor>
+        <UMMFactor>2.0</UMMFactor>
+        <ReverseMixFactor>125.0</ReverseMixFactor>
+        <TaqmanProbeInitialConcentration>20.0</TaqmanProbeInitialConcentration>
+        <TaqmanProbeFinalQuantity>900.0</TaqmanProbeFinalQuantity>
+        <TaqmanProbeInitialConcentrationUnits>pmol/µL</TaqmanProbeInitialConcentrationUnits>
+        <ForwardPrimerFinalQuantity>200.0</ForwardPrimerFinalQuantity>
+        <ForwardPrimerInitialConcentration>20.0</ForwardPrimerInitialConcentration>
+        <ForwardPrimerInitialConcentrationUnits>pmol/µL</ForwardPrimerInitialConcentrationUnits>
+        <ReversePrimerFinalQuantity>200.0</ReversePrimerFinalQuantity>
+        <ReversePrimerInitialConcentration>20.0</ReversePrimerInitialConcentration>
+        <ReversePrimerInitialConcentrationUnits>pmol/µL</ReversePrimerInitialConcentrationUnits>
+    </Detectors>
+    <StockEntries>
+        <Key>Target 1</Key>
+        <Value>
+            <Concentration>100.0</Concentration>
+            <ConcentrationUnitsPerMicroLiter>ng</ConcentrationUnitsPerMicroLiter>
+        </Value>
+    </StockEntries>
+    <CocktailWastePercentage>10</CocktailWastePercentage>
+    <ChemistryType>SYBR_GREEN</ChemistryType>
+    <UMMFactor>2.0</UMMFactor>
+    <CommonSampleConcentration>50.0</CommonSampleConcentration>
+    <CommonSampleConcentrationUnits>ng/μL</CommonSampleConcentrationUnits>
+    <TCProtocolMode>Standard</TCProtocolMode>
+    <DNATemplateType>WET_DNA</DNATemplateType>
+    <InstrumentTypeId>stepone</InstrumentTypeId>
+</Experiment>
