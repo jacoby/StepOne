@@ -60,7 +60,7 @@ sub make_eds {
     # write experiment.xml
     experiment_template( $experiment )
         or croak 'experiment did not write' ;
-
+    
     # write plate_setup.xml
     plate_template( $experiment )
         or croak 'plate record did not write' ;
@@ -139,7 +139,7 @@ sub plate_template {
     my $in       = $data->{ templates } . '/plate_setup.tt' ;
     my $out      = $data->{ target } . '/apldbio/sds/plate_setup.xml' ;
     my $vars ;
-    my @repeats = @{ $data->{ replicates } } ;
+    my @repeats = ( 1 .. $data->{ replicates } ) ;
 
     my @colors = (
         '-2105970', '-524376',  '-4915456',  '-13159',
